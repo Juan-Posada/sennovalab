@@ -163,6 +163,8 @@ div.img-new{
     justify-content: center;
     align-items: end;
     background: url(../images/landing/new.png);
+    background-size: cover;
+    background-position: center;
 }
 
 div.bottom-img{
