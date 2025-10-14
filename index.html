@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="assets/css/landing/mobile.css">
     <link rel="stylesheet" href="assets/css/landing/animations.css">
+    <!-- Fondo interactivo -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
     <title>Sennovalab</title>
 </head>
 
@@ -91,22 +94,22 @@
                             INNOVACIÓN
                         </h3>
                     </div>
-                        <div class="img-new">
-                            <div class="bottom-img">
-                                <div class="info-new">
-                                    <h1 class="info-new">
-                                        La Noche de los Mejores SENNOVA 2024, un espacio para destacar la innovación que
-                                        transforma vidas.
-                                    </h1>
-                                </div>
-                                <div class="share">
-                                    <a href="" class="share" id="share">
-                                        <img src="assets/images/landing/share.png" alt="share" class="share">
-                                    </a>
-                                </div>
+                    <div class="img-new">
+                        <div class="bottom-img">
+                            <div class="info-new">
+                                <h1 class="info-new">
+                                    La Noche de los Mejores SENNOVA 2024, un espacio para destacar la innovación que
+                                    transforma vidas.
+                                </h1>
+                            </div>
+                            <div class="share">
+                                <a href="" class="share" id="share">
+                                    <img src="assets/images/landing/share.png" alt="share" class="share">
+                                </a>
                             </div>
                         </div>
                     </div>
+                </div>
                 <div class="trending">
                     <div class="title-trending">
                         <h1 class="title-trending">
@@ -503,6 +506,22 @@
                 alert('La función de compartir no es compatible con este navegador.');
             }
         });
+
+        VANTA.FOG({
+            el: "#we",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            highlightColor: 0xe5e5e5,
+            midtoneColor: 0x9894a2,
+            lowlightColor: 0xc2c2c2,
+            baseColor: 0xebecff,
+            speed: 5.00
+        })
+    </script>
+
     </script>
 </body>
 
