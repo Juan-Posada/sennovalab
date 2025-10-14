@@ -597,6 +597,7 @@
         width: 350px;
         height: 250px;
         gap: 5px;
+        margin-bottom: -40px;
     }
 
     h2.sennovalab{
