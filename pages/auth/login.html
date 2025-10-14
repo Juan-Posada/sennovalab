@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="shortcut icon" href="../../assets/images/auth/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../assets/css/reset.css">
+    <link rel="stylesheet" href="../../assets/css/auth/login.css">
+    <!-- Librerías fondo nubes -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js"></script>
+    <!-- Sweetalert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body id="body">
+    <!-- Botón flotante para cerrar -->
+    <button class="btn-close-page" onclick="window.location.href='form.html'" title="Cerrar login">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <section class="card">
+        <div class="card-login">
+            <div class="title-box">
+                <div class="title">
+                    <h1>Iniciar Sesión</h1>
+                </div>
+                <h2 class="subtitle">Accede a NNOVAWEB con tu usario y contraseña</h2>
+            </div>
+            <div class="inputs-div">
+                <div class="box-input">
+                    <div class="logo-input">
+                        <img src="../../assets/images/auth/people.png" alt="people">
+                    </div>
+                    <input type="text" class="input" placeholder="Usuario">
+                </div>
+                <div class="box-input">
+                    <div class="logo-input">
+                        <img src="../../assets/images/auth/password.png" alt="people">
+                    </div>
+                    <input type="password" class="input" placeholder="Contraseña">
+                </div>
+                <div class="box-input-send">
+                    <a href="../../pages/admin/welcome.hrml">Inicar Sesión</a>
+                </div>
+            </div>
+            <div class="register">
+                <h1>Sí todavía no tienes una cuenta, <a href="index.html">Regístrate aquí</a></h1>
+            </div>
+        </div>
+    </section>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        VANTA.CLOUDS({
+            el: "#body",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00
+        })
+    });
+</script>
+<script src="../../assets/js/auth/login.js"></script>
+
+</html>
