@@ -87,7 +87,7 @@ document.head.appendChild(style);
 
 // Usuarios predefinidos para login
 const usuarios = {
-    mariaPaula: { password: "1234", redirect: "../admin/users/view.html" },
+    mariaPaula: { password: "1234", redirect: "../admin/admin.html" },
     juanPosada: { password: "1234", redirect: "../client/client.html" }
 };
 

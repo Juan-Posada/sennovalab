@@ -26,8 +26,31 @@
     --delete-confirm: #560909;
     --delete-exit-hover: #a12525;
     --delete-confirm-hover: rgb(36, 4, 4);
+    --bg-body: #f5f5f5;
+    --text-primary: #08003F;
+    --text-secondary: #666;
 }
 
+/* Modo oscuro */
+body.dark-mode {
+    --darkBlue: #1a1a2e;
+    --lightBlue: #6c9fff;
+    --white: #1a1a2e;
+    --white-25: rgba(26, 26, 46, 0.25);
+    --black: white;
+    --sidebar: #16213e;
+    --header: rgba(22, 33, 62, 0.95);
+    --cards: rgba(22, 33, 62, 0.9);
+    --cards-hover: rgba(22, 33, 62, 1);
+    --bg-body: #0f1419;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+}
+
+body {
+    background-color: var(--bg-body);
+    transition: background-color 0.3s ease;
+}
 
 .scroll-form::-webkit-scrollbar {
     width: 8px;  
@@ -74,6 +97,7 @@ div.sidebar{
     align-items: center;
     flex-direction: column;
     padding: 25px 0;
+    transition: background-color 0.3s ease;
 }
 
 
@@ -239,7 +263,7 @@ header.header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: margin-left 0.35s cubic-bezier(0.4, 0, 0.2, 1), width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: margin-left 0.35s cubic-bezier(0.4, 0, 0.2, 1), width 0.35s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
 }
 
 .burger-menu{
@@ -399,6 +423,7 @@ header.header{
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background-color 0.3s ease;
     img{
         width: 49.5px;
         height: 55px;
@@ -443,6 +468,10 @@ section.section{
     box-shadow: 6px 4px 25px 0px rgba(0,0,0,0.75);
     position: relative;
     overflow: hidden;
+}
+
+.data-container.hidden {
+    display: none;
 }
 
 .data-container::before {
@@ -530,6 +559,7 @@ div.buttons{
     justify-content: center;
     align-items: center;
     gap: 9%;
+    transition: background-color 0.3s ease;
 
     a.button-action{
         border-radius: 15px;
@@ -611,6 +641,7 @@ footer.footer{
     border-top: 2px solid var(--darkBlue);
     margin-left: -1%;
     background-color: white;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
     .back, .create{
         display: flex;
         justify-content: center;
@@ -644,7 +675,10 @@ footer.footer{
     }
 }
 
-
+body.dark-mode footer.footer {
+    background-color: var(--sidebar);
+    border-top: 2px solid var(--lightBlue);
+}
 
 /* -------------------------------------CRUDS-------------------------------------------- */
 
@@ -718,6 +752,7 @@ footer.footer{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    transition: background-color 0.3s ease;
 }
 
 form.create{
@@ -1443,4 +1478,65 @@ form.view{
         transform: translateY(-3px);
         box-shadow: 0px 5px 35px 5px rgba(142, 187, 255, 0.3);
     }
+}
+
+.section-crud{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: var(--complete);
+    height: var(--complete);
+}
+
+.text-welcome-crud{
+    width: 45%;
+    height: var(--complete);
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    h1{
+        width: 110%;
+        color: var(--text-primary);
+        font-size: 90px;
+        text-decoration: underline;
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+    h2{
+        width: 130%;
+        color: var(--lightGreen);
+        font-size: 56px;
+        margin-top: -35px;
+        font-weight: 500;
+    }
+    h3{
+        color: var(--text-secondary);
+        width: 90%;
+        font-size: 18px;
+        line-height: 1.1;
+        transition: color 0.3s ease;
+    }
+}
+
+.img-welcome-crud{
+    width: 50%;
+    height: var(--complete);
+    background: url(../../images/app/welcome-bg.png);
+}
+
+/* Estilos para el mensaje "No se encontraron usuarios" */
+.no-results-message {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--text-primary);
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    transition: color 0.3s ease;
 }

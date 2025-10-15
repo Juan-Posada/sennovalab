@@ -1,14 +1,33 @@
 const sidebar          = document.querySelector('.sidebar-aside')
 const main             = document.querySelector('.main')
 const burgerMenuButton = document.querySelector('.burger-menu')
+const modeVisualButton = document.querySelector('.mode-visual')
+const searchInput      = document.querySelector('.search input[type="text"]')
 
+// Toggle del sidebar
 burgerMenuButton.addEventListener('click', function(){
     sidebar.classList.toggle('sidebar-hidden')
     main.classList.toggle('main-complete')
 })
 
-// Animaciones de entrada retardada
+// Toggle modo oscuro/claro
+modeVisualButton.addEventListener('click', function(){
+    document.body.classList.toggle('dark-mode')
+    
+    // Guardar preferencia en localStorage
+    if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark')
+    } else {
+        localStorage.setItem('theme', 'light')
+    }
+})
+
+// Cargar preferencia de tema al cargar la página
 document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme')
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode')
+    }
     
     // Animar cards de usuarios con entrada escalonada
     const dataContainers = document.querySelectorAll('.data-container')
@@ -127,6 +146,49 @@ document.addEventListener('DOMContentLoaded', function() {
     })
 })
 
+// Funcionalidad de búsqueda
+if (searchInput) {
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase().trim()
+        const dataContainers = document.querySelectorAll('.data-container')
+        const section = document.querySelector('section.section')
+        let visibleCount = 0
+        
+        dataContainers.forEach(card => {
+            const titleCard = card.querySelector('.title-card')
+            const subtitleCard = card.querySelector('.subtitle-card')
+            
+            if (titleCard && subtitleCard) {
+                const title = titleCard.textContent.toLowerCase()
+                const subtitle = subtitleCard.textContent.toLowerCase()
+                
+                if (title.includes(searchTerm) || subtitle.includes(searchTerm)) {
+                    card.classList.remove('hidden')
+                    visibleCount++
+                } else {
+                    card.classList.add('hidden')
+                }
+            }
+        })
+        
+        // Mostrar mensaje si no hay resultados
+        let noResultsMsg = document.querySelector('.no-results-message')
+        
+        if (visibleCount === 0 && searchTerm !== '') {
+            if (!noResultsMsg) {
+                noResultsMsg = document.createElement('div')
+                noResultsMsg.className = 'no-results-message'
+                noResultsMsg.innerHTML = '<p>No se encontraron usuarios con ese criterio de búsqueda</p>'
+                section.appendChild(noResultsMsg)
+            }
+        } else {
+            if (noResultsMsg) {
+                noResultsMsg.remove()
+            }
+        }
+    })
+}
+
 // Efecto de partículas en el cursor para los botones de acción
 const actionButtons = document.querySelectorAll('.button-action')
 actionButtons.forEach(button => {
@@ -154,7 +216,7 @@ actionButtons.forEach(button => {
 const section = document.querySelector('section.section')
 if (section) {
     section.addEventListener('mousemove', function(e) {
-        const cards = document.querySelectorAll('.data-container')
+        const cards = document.querySelectorAll('.data-container:not(.hidden)')
         
         cards.forEach(card => {
             const rect = card.getBoundingClientRect()
@@ -177,7 +239,6 @@ if (section) {
 }
 
 // Animación de escribir en el buscador con efecto de ondas
-const searchInput = document.querySelector('.search input[type="text"]')
 if (searchInput) {
     searchInput.addEventListener('focus', function() {
         this.parentElement.style.transform = 'scale(1.05)'
