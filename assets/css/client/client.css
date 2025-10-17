@@ -318,6 +318,7 @@ h2.title-indicator{
         text-align: start;
         color: #249707;
         transition: all 0.3s ease;
+        line-height: .9;
     }
     
     &:hover{

@@ -72,33 +72,40 @@
             </div>
         </div>
     </section>
-</body>
-<script>
-    VANTA.WAVES({
-        el: "body",
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.00,
-        minWidth: 200.00,
-        scale: 1.00,
-        scaleMobile: 1.00,
-        color: 0x797979,
-        shininess: 4.00,
-        waveSpeed: 1.65,
-        zoom: 1.04
-    })
+    <!-- Auth y SweetAlert2 (si no los tienes ya) -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../../assets/js/auth.js"></script>
 
-    document.addEventListener('DOMContentLoaded', function() {
-        const cards = document.querySelectorAll('.card-animate');
-        cards.forEach((card, index) => {
-            setTimeout(() => {
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-            }, index * 150);
+    <!-- Cargador de proyecto del cliente -->
+    <script src="../../assets/js/api/api-cliente.js"></script>
+    <script>
+        VANTA.WAVES({
+            el: "body",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x797979,
+            shininess: 4.00,
+            waveSpeed: 1.65,
+            zoom: 1.04
+        })
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card-animate');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 150);
+            });
         });
-    });
-</script>
+    </script>
+</body>
+
 
 
 </html>

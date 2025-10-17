@@ -82,6 +82,23 @@ style.textContent = `
     .swal2-loader {
         border-color: #5498FF transparent #5498FF transparent !important;
     }
+
+    /* 🔧 FIX: mantener el layout estable al abrir SweetAlert */
+    html.swal2-shown,
+    body.swal2-shown {
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        position: relative !important;
+        height: 100% !important;
+    }
+
+    .swal2-shown > *:not(.swal2-container) {
+        filter: blur(0px) !important;
+    }
+    
+    .swal2-shown > *:not(.swal2-container) {
+        filter: blur(0px) !important;
+    }
 `;
 document.head.appendChild(style);
 
