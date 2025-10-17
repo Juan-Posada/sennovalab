@@ -178,7 +178,7 @@ if (searchInput) {
             if (!noResultsMsg) {
                 noResultsMsg = document.createElement('div')
                 noResultsMsg.className = 'no-results-message'
-                noResultsMsg.innerHTML = '<p>No se encontraron usuarios con ese criterio de búsqueda</p>'
+                noResultsMsg.innerHTML = '<p>No se encontraron registros con ese criterio de búsqueda</p>'
                 section.appendChild(noResultsMsg)
             }
         } else {
@@ -258,18 +258,6 @@ if (searchInput) {
         }
     })
 }
-
-// Efecto de brillo siguiendo el cursor en las cards
-document.querySelectorAll('.data-container').forEach(card => {
-    card.addEventListener('mousemove', function(e) {
-        const rect = this.getBoundingClientRect()
-        const x = ((e.clientX - rect.left) / rect.width) * 100
-        const y = ((e.clientY - rect.top) / rect.height) * 100
-        
-        this.style.setProperty('--mouse-x', x + '%')
-        this.style.setProperty('--mouse-y', y + '%')
-    })
-})
 
 // Scroll suave para la sección de cards
 const cardSection = document.querySelector('section.section')

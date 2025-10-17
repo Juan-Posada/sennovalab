@@ -85,11 +85,92 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Usuarios predefinidos para login
-const usuarios = {
-    mariaPaula: { password: "1234", redirect: "../admin/admin.html" },
-    juanPosada: { password: "1234", redirect: "../client/client.html" }
-};
+// API URL
+const API_URL = 'https://flutter-project-formative.onrender.com/api/v1';
+
+// Función para hacer login
+async function loginUser(userName, password) {
+    try {
+        // Mostrar loading
+        customSwal.fire({
+            title: 'Validando credenciales...',
+            allowOutsideClick: false,
+            didOpen: () => {
+                customSwal.showLoading();
+            }
+        });
+
+        // Obtener todos los usuarios
+        const response = await fetch(`${API_URL}/users/`);
+        
+        if (!response.ok) {
+            throw new Error('Error al conectar con el servidor');
+        }
+        
+        const result = await response.json();
+        const users = result.data || [];
+        
+        // Buscar usuario que coincida con userName y password
+        const user = users.find(u => 
+            u.userName === userName && u.password === password
+        );
+        
+        if (user) {
+            // Guardar información del usuario en localStorage
+            localStorage.setItem('userId', user.id);
+            localStorage.setItem('userName', user.userName);
+            localStorage.setItem('userEmail', user.email);
+            localStorage.setItem('userPhoto', user.photo || '');
+            localStorage.setItem('userRole', user.role.name);
+            localStorage.setItem('userRoleId', user.role.id);
+            localStorage.setItem('userFullName', `${user.name} ${user.lastName}`);
+            
+            // Login exitoso
+            customSwal.fire({
+                icon: 'success',
+                title: '¡Bienvenido!',
+                text: `Hola ${user.name}, iniciando sesión...`,
+                showConfirmButton: false,
+                timer: 1500
+            }).then(() => {
+                // Redirigir según el rol
+                redirectByRole(user.role.name);
+            });
+        } else {
+            // Credenciales incorrectas
+            customSwal.fire({
+                icon: 'error',
+                title: 'Error de autenticación',
+                text: 'Usuario o contraseña incorrectos',
+                confirmButtonText: 'Intentar de nuevo'
+            });
+        }
+        
+    } catch (error) {
+        console.error('Error en login:', error);
+        customSwal.fire({
+            icon: 'error',
+            title: 'Error de conexión',
+            text: 'No se pudo conectar con el servidor. Intenta nuevamente.',
+            confirmButtonText: 'Aceptar'
+        });
+    }
+}
+
+// Función para redirigir según el rol
+function redirectByRole(roleName) {
+    // Normalizar el nombre del rol (minúsculas y sin espacios)
+    const role = roleName.toLowerCase().trim();
+    
+    if (role.includes('administradores')) {
+        window.location.href = '../admin/admin.html';
+    } else if (role.includes('clientes')) {
+        window.location.href = '../client/client.html';
+    } else {
+        // Rol desconocido, redirigir a página por defecto
+        window.location.href = '../../../index.html';
+    }
+}
 
 // Validación de login
 document.addEventListener("DOMContentLoaded", function() {
@@ -101,26 +182,28 @@ document.addEventListener("DOMContentLoaded", function() {
         btnLogin.addEventListener("click", function(e) {
             e.preventDefault();
             
-            const usuario = inputUsuario.value.trim();
+            const userName = inputUsuario.value.trim();
             const password = inputPassword.value;
 
-            if (usuarios[usuario] && usuarios[usuario].password === password) {
+            // Validar que los campos no estén vacíos
+            if (!userName || !password) {
                 customSwal.fire({
-                    icon: 'success',
-                    title: '¡Bienvenido!',
-                    text: 'Inicio de sesión exitoso',
-                    showConfirmButton: false,
-                    timer: 1500
-                }).then(() => {
-                    window.location.href = usuarios[usuario].redirect;
+                    icon: 'warning',
+                    title: 'Campos vacíos',
+                    text: 'Por favor ingresa tu usuario y contraseña',
+                    confirmButtonText: 'Aceptar'
                 });
-            } else {
-                customSwal.fire({
-                    icon: 'error',
-                    title: 'Error de autenticación',
-                    text: 'Usuario o contraseña incorrectos',
-                    confirmButtonText: 'Intentar de nuevo'
-                });
+                return;
+            }
+
+            // Intentar hacer login
+            loginUser(userName, password);
+        });
+
+        // Permitir login con Enter
+        inputPassword.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                btnLogin.click();
             }
         });
     }
