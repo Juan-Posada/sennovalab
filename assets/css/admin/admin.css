@@ -100,8 +100,6 @@ div.sidebar{
     transition: background-color 0.3s ease;
 }
 
-
-
 .profile{
     height: 22%;
     width: 85%;
@@ -113,38 +111,45 @@ div.sidebar{
     gap: 15px;
     background-color: rgba(255, 255, 255, 0.25);
     border-radius: 20px;
-    .img-profile{
-        height: var(--complete);
-        width: 60%;
-        border-radius: 10px;
-        img.photo-profile{
-            width: var(--complete);
-            height: var(--complete);
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-            object-fit: cover;
-        }
-    }
-    .actions-profile{
-        height: 190px;
-        width: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: 25px;
-        .info-profile, .logout{
-            width: 62%;
-            height: 15%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease;
-        }
-        .info-profile:hover, .logout:hover{
-            transform: scale(1.2) rotate(5deg);
-        }
-    }
+}
+
+.profile .img-profile{
+    height: 100%;
+    width: 60%;
+    border-radius: 10px;
+}
+
+.profile .img-profile img.photo-profile{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    object-fit: cover;
+}
+
+.profile .actions-profile{
+    height: 190px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.profile .actions-profile .info-profile, 
+.profile .actions-profile .logout{
+    width: 62%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.profile .actions-profile .info-profile:hover, 
+.profile .actions-profile .logout:hover{
+    transform: scale(1.2) rotate(5deg);
 }
 
 .actions-redirections{
@@ -163,7 +168,7 @@ a#redirect-to{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: var(--complete);
+    width: 100%;
     height: 50px;
     min-height: 50px;
     border-radius: 15px;
@@ -213,16 +218,17 @@ a#redirect-to:hover img {
 }
 
 .foot-info{
-    width: var(--complete);
+    width: 100%;
     height: 5%;
     display: flex;
     justify-content: center;
     align-items: end;
-    h2{
-        font-size: 18px;
-        font-weight: normal;
-        color: white;
-    }
+}
+
+.foot-info h2{
+    font-size: 18px;
+    font-weight: normal;
+    color: white;
 }
 
 main{
@@ -246,7 +252,7 @@ main{
 }
 
 section.principal{
-    width: var(--complete);
+    width: 100%;
     height: 99%;
     display: flex;
     justify-content: center;
@@ -305,28 +311,25 @@ header.header{
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    h1{
-        font-size: 30px;
-        font-weight: bold;
-        color: var(--white);
-        overflow: hidden; 
-        border-right: .11em solid var(--white-25); 
-        white-space: nowrap; 
-        letter-spacing: .08em;
-        animation: 
-        typing 2s steps(40, end),
-        blink-caret .45s step-end infinite;
-        margin: 0 20px;
-    }
+}
+
+.title h1{
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--white);
+    overflow: hidden; 
+    border-right: .11em solid var(--white-25); 
+    white-space: nowrap; 
+    letter-spacing: .08em;
+    animation: typing 2s steps(40, end), blink-caret .45s step-end infinite;
+    margin: 0 20px;
 }
 
 @keyframes typing {
     from { width: 0 }
-    to { width: var(--complete) }
+    to { width: 100% }
 }
 
-/* The typewriter cursor effect */
 @keyframes blink-caret {
     from, to { border-color: transparent }
     50% { border-color: var(--white-25); }
@@ -338,84 +341,87 @@ header.header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .input-text{
-        height: var(--complete);
-        width: 385px;
-        border-radius: 40px;
-        background-color: var(--darkBlue);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
-        position: relative;
-        overflow: hidden;
-        input{
-            width: 80%;
-            height: var(--complete);
-            padding: 0 20px;
-            color: white;
-            transition: all 0.3s ease;
-        }
-        input:focus {
-            padding-left: 25px;
-        }
-        .glass{
-            width: 20%;
-            height: var(--complete);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: transform 0.3s ease;
-        }
-    }
+}
 
-    .input-text::before {
-        content: '';
-        position: absolute;
-        left: -100%;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-        transition: left 0.5s ease;
-    }
+.search .input-text{
+    height: 100%;
+    width: 385px;
+    border-radius: 40px;
+    background-color: var(--darkBlue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
 
-    .input-text:hover::before {
-        left: 100%;
-    }
+.search .input-text input{
+    width: 80%;
+    height: 100%;
+    padding: 0 20px;
+    color: white;
+    transition: all 0.3s ease;
+}
 
-    .input-text:hover{
-        background-color: var(--header);
-        box-shadow: 0 0 20px rgba(84, 152, 255, 0.3);
-        transform: scale(1.02);
-    }
+.search .input-text input:focus {
+    padding-left: 25px;
+}
 
-    .input-text:hover .glass {
-        transform: scale(1.1) rotate(10deg);
-    }
+.search .input-text .glass{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
 
-    .mode-visual{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: var(--complete);
-        width: 50px;
-        border-radius: 50%;
-        background-color: var(--darkBlue);
-        border-radius: 50%;
-        transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
-        cursor: pointer;
-    }
+.search .input-text::before {
+    content: '';
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
 
-    .mode-visual:hover{
-        background-color: var(--header);
-        box-shadow: 0 0 20px rgba(84, 152, 255, 0.3);
-        transform: scale(1.1) rotate(180deg);
-    }
+.search .input-text:hover::before {
+    left: 100%;
+}
+
+.search .input-text:hover{
+    background-color: var(--header);
+    box-shadow: 0 0 20px rgba(84, 152, 255, 0.3);
+    transform: scale(1.02);
+}
+
+.search .input-text:hover .glass {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.search .mode-visual{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 50px;
+    border-radius: 50%;
+    background-color: var(--darkBlue);
+    transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.search .mode-visual:hover{
+    background-color: var(--header);
+    box-shadow: 0 0 20px rgba(84, 152, 255, 0.3);
+    transform: scale(1.1) rotate(180deg);
 }
 
 .logo{
-    height: var(--complete);
+    height: 100%;
     background-color: var(--darkBlue);
     width: 120px;
     border-top-right-radius: 10px;
@@ -424,19 +430,20 @@ header.header{
     justify-content: center;
     align-items: center;
     transition: background-color 0.3s ease;
-    img{
-        width: 49.5px;
-        height: 55px;
-        transition: transform 0.3s ease;
-    }
-    img:hover {
-        transform: scale(1.1) rotate(5deg);
-    }
 }
 
+.logo img{
+    width: 49.5px;
+    height: 55px;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1) rotate(5deg);
+}
 
 section.section{
-    width: var(--complete);
+    width: 100%;
     height: 77%;
     display: flex;
     justify-content: center;
@@ -504,55 +511,53 @@ div.info-card{
     align-items: center;
     flex-direction: column;
     overflow: hidden;
-    h3.title-card{
-        color: white;
-        text-decoration: underline;
-        font-weight: normal;
-        font-size: 26px;
-        text-align: center;
-        transition: all 0.3s ease;
-        width: 100%;
-        line-height: .8;
-        margin-bottom: 10px;
-    }
-
-    h3.title-card:hover {
-        transform: scale(1.05);
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    }
-
-    h3.title-card::after {
-        content: attr(data-title);
-        position: absolute;
-        background-color: #000;
-        color: #fff;
-        padding: 0px 8px;
-        border-radius: 5px;
-        display: none;
-        bottom: 25px;
-    }
-
-    h3.title-card:hover::after {
-        display: block;
-    }
-
-
-    h4.subtitle-card{
-        color: white;
-        font-weight: normal;
-        font-size: 20px;
-        text-align: center;
-        margin-top: -5%;
-        transition: all 0.3s ease;
-    }
-
-    h4.subtitle-card:hover {
-        transform: scale(1.05);
-        color: var(--lightBlue);
-    }
 }
 
+div.info-card h3.title-card{
+    color: white;
+    text-decoration: underline;
+    font-weight: normal;
+    font-size: 26px;
+    text-align: center;
+    transition: all 0.3s ease;
+    width: 100%;
+    line-height: .8;
+    margin-bottom: 10px;
+}
 
+div.info-card h3.title-card:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+div.info-card h3.title-card::after {
+    content: attr(data-title);
+    position: absolute;
+    background-color: #000;
+    color: #fff;
+    padding: 0px 8px;
+    border-radius: 5px;
+    display: none;
+    bottom: 25px;
+}
+
+div.info-card h3.title-card:hover::after {
+    display: block;
+}
+
+div.info-card h4.subtitle-card{
+    color: white;
+    font-weight: normal;
+    font-size: 20px;
+    text-align: center;
+    margin-top: -5%;
+    transition: all 0.3s ease;
+}
+
+div.info-card h4.subtitle-card:hover {
+    transform: scale(1.05);
+    color: var(--lightBlue);
+}
 
 div.buttons{
     width: 70%;
@@ -564,75 +569,75 @@ div.buttons{
     align-items: center;
     gap: 9%;
     transition: background-color 0.3s ease;
+}
 
-    a.button-action{
-        border-radius: 15px;
-        width: 49px;
-        height: 49px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        overflow: hidden;
-    }
+div.buttons a.button-action{
+    border-radius: 15px;
+    width: 49px;
+    height: 49px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
 
-    a.button-action::before {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border-radius: 15px;
-        background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
-        transform: scale(0);
-        transition: transform 0.3s ease;
-    }
+div.buttons a.button-action::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
 
-    a.button-action:hover::before {
-        transform: scale(1);
-    }
+div.buttons a.button-action:hover::before {
+    transform: scale(1);
+}
 
-    a.button-action img {
-        transition: transform 0.3s ease;
-        position: relative;
-        z-index: 1;
-    }
+div.buttons a.button-action img {
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
 
-    a.button-action:hover img {
-        transform: scale(1.2) rotate(10deg);
-    }
+div.buttons a.button-action:hover img {
+    transform: scale(1.2) rotate(10deg);
+}
 
-    a#edit{
-        background-color: var(--lightGreen);
-        transition: all .3s ease-in-out;
-    }
+div.buttons a#edit{
+    background-color: var(--lightGreen);
+    transition: all .3s ease-in-out;
+}
 
-    a#edit:hover{
-        transform: scale(1.1);
-        box-shadow: 0 5px 20px rgba(46, 211, 5, 0.5);
-        filter: brightness(1.1);
-    }
+div.buttons a#edit:hover{
+    transform: scale(1.1);
+    box-shadow: 0 5px 20px rgba(46, 211, 5, 0.5);
+    filter: brightness(1.1);
+}
 
-    a#view{
-        background-color: var(--lightBlue);
-        transition: all .3s ease-in-out;
-    }
+div.buttons a#view{
+    background-color: var(--lightBlue);
+    transition: all .3s ease-in-out;
+}
 
-    a#view:hover{
-        transform: scale(1.1);
-        box-shadow: 0 5px 20px rgba(84, 152, 255, 0.5);
-        filter: brightness(1.1);
-    }
+div.buttons a#view:hover{
+    transform: scale(1.1);
+    box-shadow: 0 5px 20px rgba(84, 152, 255, 0.5);
+    filter: brightness(1.1);
+}
 
-    a#delete{
-        background-color: var(--delete);
-        transition: all .3s ease-in-out;
-    }
+div.buttons a#delete{
+    background-color: var(--delete);
+    transition: all .3s ease-in-out;
+}
 
-    a#delete:hover{
-        transform: scale(1.1);
-        box-shadow: 0 5px 20px rgba(145, 24, 24, 0.5);
-        filter: brightness(1.2);
-    }
+div.buttons a#delete:hover{
+    transform: scale(1.1);
+    box-shadow: 0 5px 20px rgba(145, 24, 24, 0.5);
+    filter: brightness(1.2);
 }
 
 footer.footer{
@@ -646,37 +651,45 @@ footer.footer{
     margin-left: -1%;
     background-color: white;
     transition: background-color 0.3s ease, border-color 0.3s ease;
-    .back, .create{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 55px;
-        height: 55px;
-        border-radius: 50%;
-        transition: all 0.3s ease;
-        position: relative;
-        a{
-            width: var(--complete);
-            height: var(--complete);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        img{
-            width: 75%;
-            height: 75%;
-            transition: transform 0.3s ease;
-        }
-    }
-    
-    .back:hover, .create:hover {
-        background-color: var(--white-25);
-        transform: scale(1.1);
-    }
+}
 
-    .back:hover img, .create:hover img {
-        transform: scale(1.2) rotate(-10deg);
-    }
+footer.footer .back, 
+footer.footer .create{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+footer.footer .back a,
+footer.footer .create a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer.footer .back img,
+footer.footer .create img{
+    width: 75%;
+    height: 75%;
+    transition: transform 0.3s ease;
+}
+
+footer.footer .back:hover, 
+footer.footer .create:hover {
+    background-color: var(--white-25);
+    transform: scale(1.1);
+}
+
+footer.footer .back:hover img, 
+footer.footer .create:hover img {
+    transform: scale(1.2) rotate(-10deg);
 }
 
 body.dark-mode footer.footer {
@@ -684,7 +697,62 @@ body.dark-mode footer.footer {
     border-top: 2px solid var(--lightBlue);
 }
 
-/* -------------------------------------CRUDS-------------------------------------------- */
+/* ========== ESTILOS MEJORADOS PARA LABELS CON ICONOS ========== */
+
+.label-icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    width: 100px;
+    height: 100%;
+    padding: 10px 5px;
+}
+
+.label-icon-wrapper:hover {
+    transform: scale(1.08);
+}
+
+.label-icon-wrapper i {
+    font-size: 2.5em;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.label-icon-wrapper:hover i {
+    font-size: 2.7em;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.label-text {
+    font-size: 0.55em;
+    color: #ffffff;
+    font-weight: 700;
+    text-align: center;
+    max-width: 85px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    opacity: 0.95;
+    word-wrap: break-word;
+}
+
+/* Labels normales sin icono */
+label:not(.label-icon-wrapper) {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* ============================================
+   CRUD CONTAINER
+   ============================================ */
 
 .content-crud{
     width: 565px;
@@ -695,14 +763,13 @@ body.dark-mode footer.footer {
     flex-direction: column;
 }
 
-
-
-/* -------------------------------------CREATE-------------------------------------------- */
-
+/* ============================================
+   CREATE FORM STYLES
+   ============================================ */
 
 .logo-create{
-    min-width: 210px;
-    min-height: 210px;
+    min-width: 180px;
+    min-height: 180px;
     border-radius: 50%;
     background-color: var(--darkBlue);
     box-shadow: 0px -10px 30px 0px rgba(255,255,255,0.26) inset;
@@ -713,13 +780,14 @@ body.dark-mode footer.footer {
     transition: all .4s ease-in-out;
     position: relative;
     overflow: hidden;
-    img{
-        width: 45%;
-        height: 45%;
-        transition: transform 0.4s ease;
-        position: relative;
-        z-index: 1;
-    }
+}
+
+.logo-create img{
+    width: 45%;
+    height: 45%;
+    transition: transform 0.4s ease;
+    position: relative;
+    z-index: 1;
 }
 
 .logo-create::before {
@@ -746,327 +814,195 @@ body.dark-mode footer.footer {
 }
 
 .create-container{
-    min-width: var(--complete);
+    min-width: 100%;
     min-height: 73%;
     background-color: var(--darkBlue);
     border-radius: 30px;
-    margin-top: -65px;
+    margin-top: -50px;
     box-shadow: 0px -10px 30px 0px rgba(255,255,255,0.21) inset;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     transition: background-color 0.3s ease;
+    padding: 20px;
+    padding-top: 70px;
+    padding-bottom: 35px;
 }
 
 form.create{
-    width: 85%;
-    min-height: 60%;
-    margin-top: 45px;
+    width: 90%;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    .scroll-form{
-        width: var(--complete);
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        height: 65%;
-        gap: 10px;
-        padding-right: 10px;
-        flex-wrap: wrap;
-        overflow-y: auto;
-        .form-group-left, .form-group-right{
-            width: 48%;
-            height: 38%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            .label-left, .label-right{
-                min-width: 25%;
-                height: var(--complete);
-                background-color: var(--label-create);
-                transition: all 0.3s ease;
-            }
-            .input-left, .input-right{
-                min-width: 65%;
-                height: var(--complete);
-                background-color: var(--input-create);
-                color: white;
-                padding: 0 12px;
-                font-size: 12px;
-                transition: .4s all ease-in-out;
-                position: relative;
-            }
+    gap: 15px;
+}
 
-            .input-left::before, .input-right::before {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 50%;
-                width: 0;
-                height: 2px;
-                background: linear-gradient(90deg, transparent, var(--white), transparent);
-                transform: translateX(-50%);
-                transition: width 0.3s ease;
-            }
+form.create .scroll-form{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    height: 65%;
+    padding-right: 10px;
+    overflow-y: auto;
+}
 
-            .input-left:focus::before, .input-right:focus::before {
-                width: 100%;
-            }
+form.create .scroll-form .form-group-left, 
+form.create .scroll-form .form-group-right{
+    width: 100%;
+    height: 140px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
 
-            input:focus{
-                background-color: var(--input-create-hover);
-                box-shadow: 0px 0px 24px -10px rgba(255,255,255,0.15) inset;
-                transform: scale(1.02);
-            }
+form.create .scroll-form .form-group-left:hover, 
+form.create .scroll-form .form-group-right:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
+}
 
-            .input-left, .label-right{
-                border-top-left-radius: 10px;
-                border-bottom-left-radius: 10px;
-            }
-            .input-right, .label-left{
-                border-top-right-radius: 10px;
-                border-bottom-right-radius: 10px;
-            }
-        }
+form.create .scroll-form .label-left, 
+form.create .scroll-form .label-right{
+    background-color: var(--label-create);
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .form-group-left:hover, .form-group-right:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
-        }
+form.create .scroll-form .form-group-left:hover .label-left, 
+form.create .scroll-form .form-group-left:hover .label-right,
+form.create .scroll-form .form-group-right:hover .label-left, 
+form.create .scroll-form .form-group-right:hover .label-right {
+    background-color: var(--label-create-hover);
+}
 
-        .form-group-left:hover .label-left, 
-        .form-group-left:hover .label-right,
-        .form-group-right:hover .label-left, 
-        .form-group-right:hover .label-right {
-            background-color: var(--label-create-hover);
-        }
-    }
+form.create .scroll-form .input-left, 
+form.create .scroll-form .input-right{
+    background-color: var(--input-create);
+    color: white;
+    padding: 0 12px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    position: relative;
+    border: none;
+    font-weight: 500;
+}
+
+form.create .scroll-form .input-left::placeholder,
+form.create .scroll-form .input-right::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+form.create .scroll-form input:focus,
+form.create .scroll-form select:focus,
+form.create .scroll-form textarea:focus{
+    background-color: var(--input-create-hover);
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.15) inset;
+    transform: scale(1.01);
+    outline: none;
+}
+
+form.create .scroll-form select,
+form.create .scroll-form textarea {
+    background-color: var(--input-create);
+    color: white;
+    padding: 0 12px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: none;
+    font-weight: 500;
+}
+
+form.create .scroll-form select option {
+    background-color: var(--darkBlue);
+    color: white;
 }
 
 .form-create-buttons{
-    height: 19%;
-    width: 70%;
+    height: auto;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    a.exit, button.confirm{
-        width: 45%;
-        height: 90%;
-        border-radius: 10px;
-        box-shadow: 0px 1px 30px 2px rgba(255,255,255,0.1);
-        color: white;
-        font-size: 19px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        transition: .4s all ease-in-out;
-        position: relative;
-        overflow: hidden;
-    }
-
-    a.exit::before, button.confirm::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 0;
-        height: 0;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.2);
-        transform: translate(-50%, -50%);
-        transition: width 0.6s ease, height 0.6s ease;
-    }
-
-    a.exit:hover::before, button.confirm:hover::before {
-        width: 300px;
-        height: 300px;
-    }
-
-    a.exit{
-        background-color: var(--label-create);
-    }
-    button.confirm{
-        background-color: var(--input-create);
-        cursor: pointer;
-    }
-    a.exit:hover{
-        background-color: var(--label-create-hover);
-        transform: translateY(-3px);
-        box-shadow: 0px 5px 35px 5px rgba(255,255,255,0.2);
-    }
-    button.confirm:hover{
-        background-color: var(--input-create-hover);
-        transform: translateY(-3px);
-        box-shadow: 0px 5px 35px 5px rgba(255,255,255,0.2);
-    }
+    gap: 20px;
 }
 
-
-/* -------------------------------------DELETE-------------------------------------------- */
-
-.logo-delete{
-    min-width: 210px;
-    min-height: 210px;
-    border-radius: 50%;
-    background-color: var(--delete);
-    box-shadow: 0px -10px 30px 0px rgba(0,0,0,0.26) inset;
-    z-index: 10;
+.form-create-buttons a.exit, 
+.form-create-buttons button.confirm{
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(255,255,255,0.2);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
     display: flex;
-    justify-content: center;
     align-items: center;
-    transition: all .4s ease-in-out;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    img{
-        height: 45%;
-        transition: transform 0.4s ease;
-        position: relative;
-        z-index: 1;
-    }
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
 }
 
-.logo-delete::before {
+.form-create-buttons a.exit::before, 
+.form-create-buttons button.confirm::before {
     content: '';
     position: absolute;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255, 0, 0, 0.2), transparent);
-    transform: scale(0);
-    transition: transform 0.4s ease;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
 }
 
-.logo-delete:hover::before {
-    transform: scale(1);
+.form-create-buttons a.exit:hover::before, 
+.form-create-buttons button.confirm:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
-.logo-delete:hover{
-    transform: rotate(-30deg) scale(1.05);
-    box-shadow: 0px 0px 40px 5px rgba(145, 24, 24, 0.5);
+.form-create-buttons a.exit{
+    background-color: var(--label-create);
 }
 
-.logo-delete:hover img {
-    transform: scale(1.1) rotate(10deg);
+.form-create-buttons button.confirm{
+    background-color: var(--input-create);
 }
 
-.delete-container{
-    min-width: var(--complete);
-    min-height: 73%;
-    background-color: var(--delete);
-    border-radius: 30px;
-    margin-top: -65px;
-    box-shadow: 0px -10px 30px 0px rgba(0,0,0,0.21) inset;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.form-create-buttons a.exit:hover{
+    background-color: var(--label-create-hover);
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 20px rgba(255,255,255,0.25);
 }
 
-form.delete{
-    width: 85%;
-    min-height: 60%;
-    margin-top: 45px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    .scroll-form{
-        width: 80%;
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        height: 65%;
-        gap: 10px;
-        padding-right: 10px;
-        flex-wrap: wrap;
-        overflow-y: auto;
-        h1{
-            color: white;
-            font-size: 30px;
-            font-weight: bold;
-            text-align: center;
-            animation: shake 0.5s ease infinite;
-        }
-    }
+.form-create-buttons button.confirm:hover{
+    background-color: var(--input-create-hover);
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 20px rgba(255,255,255,0.25);
 }
 
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-2px); }
-    75% { transform: translateX(2px); }
-}
-
-.form-delete-buttons{
-    height: 19%;
-    width: 70%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    a.exit, button.confirm{
-        width: 45%;
-        height: 90%;
-        border-radius: 10px;
-        box-shadow: 0px 1px 30px 2px rgba(0,0,0,0.1);
-        color: white;
-        font-size: 19px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        transition: .4s all ease-in-out;
-        position: relative;
-        overflow: hidden;
-    }
-
-    a.exit::before, button.confirm::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 0;
-        height: 0;
-        border-radius: 50%;
-        background: rgba(0, 0, 0, 0.3);
-        transform: translate(-50%, -50%);
-        transition: width 0.6s ease, height 0.6s ease;
-    }
-
-    a.exit:hover::before, button.confirm:hover::before {
-        width: 300px;
-        height: 300px;
-    }
-
-    a.exit{
-        background-color: var(--delete-exit);
-    }
-    button.confirm{
-        background-color: var(--delete-confirm);
-        cursor: pointer;
-    }
-    a.exit:hover{
-        background-color: var(--delete-exit-hover);
-        transform: translateY(-3px);
-        box-shadow: 0px 5px 35px 5px rgba(186, 43, 43, 0.4);
-    }
-    button.confirm:hover{
-        background-color: var(--delete-confirm-hover);
-        transform: translateY(-3px);
-        box-shadow: 0px 5px 35px 5px rgba(86, 9, 9, 0.4);
-    }
-}
-
-
-/* -------------------------------------EDIT-------------------------------------------- */
-
+/* ============================================
+   EDIT FORM STYLES
+   ============================================ */
 
 .logo-edit{
-    min-width: 210px;
-    min-height: 210px;
+    min-width: 180px;
+    min-height: 180px;
     border-radius: 50%;
     background-color: var(--lightGreen);
     box-shadow: 0px -10px 30px 0px rgba(0,0,0,0.26) inset;
@@ -1077,13 +1013,14 @@ form.delete{
     transition: all .4s ease-in-out;
     position: relative;
     overflow: hidden;
-    img{
-        width: 45%;
-        height: 45%;
-        transition: transform 0.4s ease;
-        position: relative;
-        z-index: 1;
-    }
+}
+
+.logo-edit img{
+    width: 45%;
+    height: 45%;
+    transition: transform 0.4s ease;
+    position: relative;
+    z-index: 1;
 }
 
 .logo-edit::before {
@@ -1110,173 +1047,195 @@ form.delete{
 }
 
 .edit-container{
-    min-width: var(--complete);
+    min-width: 100%;
     min-height: 73%;
     background-color: var(--lightGreen);
     border-radius: 30px;
-    margin-top: -65px;
+    margin-top: -50px;
     box-shadow: 0px -10px 30px 0px rgba(0,0,0,0.21) inset;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    transition: background-color 0.3s ease;
+    padding: 20px;
+    padding-top: 80px;
+    padding-bottom: 25px;
 }
 
 form.edit{
-    width: 85%;
-    min-height: 60%;
-    margin-top: 45px;
+    width: 90%;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    .scroll-form{
-        width: var(--complete);
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        height: 65%;
-        gap: 10px;
-        padding-right: 10px;
-        flex-wrap: wrap;
-        overflow-y: auto;
-        .form-group-left, .form-group-right{
-            width: 48%;
-            height: 38%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            .label-left, .label-right{
-                min-width: 25%;
-                height: var(--complete);
-                background-color: var(--label-edit);
-                transition: all 0.3s ease;
-            }
-            .input-left, .input-right{
-                min-width: 65%;
-                height: var(--complete);
-                background-color: var(--input-edit);
-                color: white;
-                padding: 0 12px;
-                font-size: 12px;
-                transition: .4s all ease-in-out;
-                position: relative;
-            }
+    gap: 15px;
+}
 
-            .input-left::before, .input-right::before {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 50%;
-                width: 0;
-                height: 2px;
-                background: linear-gradient(90deg, transparent, var(--lightGreen), transparent);
-                transform: translateX(-50%);
-                transition: width 0.3s ease;
-            }
+form.edit .scroll-form{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    height: 65%;
+    padding-right: 10px;
+    overflow-y: auto;
+}
 
-            .input-left:focus::before, .input-right:focus::before {
-                width: 100%;
-            }
+form.edit .scroll-form .form-group-left, 
+form.edit .scroll-form .form-group-right{
+    width: 100%;
+    height: 140px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
 
-            input:focus{
-                background-color: var(--input-edit-hover);
-                box-shadow: 0px 0px 24px -10px rgba(0,0,0,0.15) inset;
-                transform: scale(1.02);
-            }
+form.edit .scroll-form .form-group-left:hover, 
+form.edit .scroll-form .form-group-right:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(46, 211, 5, 0.2);
+}
 
-            .input-left, .label-right{
-                border-top-left-radius: 10px;
-                border-bottom-left-radius: 10px;
-            }
-            .input-right, .label-left{
-                border-top-right-radius: 10px;
-                border-bottom-right-radius: 10px;
-            }
-        }
+form.edit .scroll-form .label-left, 
+form.edit .scroll-form .label-right{
+    background-color: var(--label-edit);
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .form-group-left:hover, .form-group-right:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(46, 211, 5, 0.2);
-        }
+form.edit .scroll-form .form-group-left:hover .label-left, 
+form.edit .scroll-form .form-group-left:hover .label-right,
+form.edit .scroll-form .form-group-right:hover .label-left, 
+form.edit .scroll-form .form-group-right:hover .label-right {
+    background-color: var(--label-edit-hover);
+}
 
-        .form-group-left:hover .label-left, 
-        .form-group-left:hover .label-right,
-        .form-group-right:hover .label-left, 
-        .form-group-right:hover .label-right {
-            background-color: var(--label-edit-hover);
-        }
-    }
+form.edit .scroll-form .input-left, 
+form.edit .scroll-form .input-right{
+    background-color: var(--input-edit);
+    color: white;
+    padding: 0 12px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    position: relative;
+    border: none;
+    font-weight: 500;
+}
+
+form.edit .scroll-form .input-left::placeholder,
+form.edit .scroll-form .input-right::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+form.edit .scroll-form input:focus,
+form.edit .scroll-form select:focus,
+form.edit .scroll-form textarea:focus{
+    background-color: var(--input-edit-hover);
+    box-shadow: 0px 0px 20px rgba(46, 211, 5, 0.15) inset;
+    transform: scale(1.01);
+    outline: none;
+}
+
+form.edit .scroll-form select,
+form.edit .scroll-form textarea {
+    background-color: var(--input-edit);
+    color: white;
+    padding: 0 12px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: none;
+    font-weight: 500;
+}
+
+form.edit .scroll-form select option {
+    background-color: var(--darkBlue);
+    color: white;
 }
 
 .form-edit-buttons{
-    height: 19%;
-    width: 70%;
+    height: auto;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    a.exit, button.confirm{
-        width: 45%;
-        height: 90%;
-        border-radius: 10px;
-        box-shadow: 0px 1px 30px 2px rgba(0,0,0,0.22);
-        color: white;
-        font-size: 19px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        transition: .4s all ease-in-out;
-        position: relative;
-        overflow: hidden;
-    }
-
-    a.exit::before, button.confirm::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 0;
-        height: 0;
-        border-radius: 50%;
-        background: rgba(0, 0, 0, 0.2);
-        transform: translate(-50%, -50%);
-        transition: width 0.6s ease, height 0.6s ease;
-    }
-
-    a.exit:hover::before, button.confirm:hover::before {
-        width: 300px;
-        height: 300px;
-    }
-
-    a.exit{
-        background-color: var(--label-edit);
-    }
-    button.confirm{
-        background-color: var(--input-edit);
-        cursor: pointer;
-    }
-    a.exit:hover{
-        background-color: var(--label-edit-hover);
-        transform: translateY(-3px);
-        box-shadow: 0px 5px 35px 5px rgba(103, 238, 70, 0.3);
-    }
-    button.confirm:hover{
-        background-color: var(--input-edit-hover);
-        transform: translateY(-3px);
-        box-shadow: 0px 5px 35px 5px rgba(36, 151, 7, 0.3);
-    }
+    gap: 20px;
 }
 
+.form-edit-buttons a.exit, 
+.form-edit-buttons button.confirm{
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
 
-/* -------------------------------------VIEW-------------------------------------------- */
+.form-edit-buttons a.exit::before, 
+.form-edit-buttons button.confirm::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+}
 
+.form-edit-buttons a.exit:hover::before, 
+.form-edit-buttons button.confirm:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.form-edit-buttons a.exit{
+    background-color: var(--label-edit);
+}
+
+.form-edit-buttons button.confirm{
+    background-color: var(--input-edit);
+}
+
+.form-edit-buttons a.exit:hover{
+    background-color: var(--label-edit-hover);
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 20px rgba(103, 238, 70, 0.3);
+}
+
+.form-edit-buttons button.confirm:hover{
+    background-color: var(--input-edit-hover);
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 20px rgba(36, 151, 7, 0.3);
+}
+
+/* ============================================
+   VIEW FORM STYLES
+   ============================================ */
 
 .logo-view{
-    min-width: 210px;
-    min-height: 210px;
+    min-width: 180px;
+    min-height: 180px;
     border-radius: 50%;
     background-color: var(--lightBlue);
     box-shadow: 0px -10px 30px 0px rgba(0,0,0,0.26) inset;
@@ -1287,13 +1246,14 @@ form.edit{
     transition: all .4s ease-in-out;
     position: relative;
     overflow: hidden;
-    img{
-        width: 45%;
-        height: 45%;
-        transition: transform 0.4s ease;
-        position: relative;
-        z-index: 1;
-    }
+}
+
+.logo-view img{
+    width: 45%;
+    height: 45%;
+    transition: transform 0.4s ease;
+    position: relative;
+    z-index: 1;
 }
 
 .logo-view::before {
@@ -1320,216 +1280,385 @@ form.edit{
 }
 
 .view-container{
-    min-width: var(--complete);
+    min-width: 100%;
     min-height: 73%;
     background-color: var(--lightBlue);
     border-radius: 30px;
-    margin-top: -65px;
+    margin-top: -50px;
     box-shadow: 0px -10px 30px 0px rgba(0,0,0,0.21) inset;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    transition: background-color 0.3s ease;
+    padding: 20px;
+    padding-top: 80px;
+    padding-bottom: 40px;
 }
 
 form.view{
-    width: 85%;
-    min-height: 60%;
-    margin-top: 45px;
+    width: 90%;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    .scroll-form{
-        width: var(--complete);
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        height: 65%;
-        gap: 10px;
-        padding-right: 10px;
-        flex-wrap: wrap;
-        overflow-y: auto;
-        .form-group-left, .form-group-right{
-            width: 48%;
-            height: 38%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            .label-left, .label-right{
-                min-width: 25%;
-                height: var(--complete);
-                background-color: var(--label-view);
-                transition: all 0.3s ease;
-            }
-            .input-left, .input-right{
-                min-width: 65%;
-                height: var(--complete);
-                background-color: var(--input-view);
-                padding: 0 12px;
-                transition: .4s all ease-in-out;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                overflow: hidden !important;
-                position: relative;
-                h2{
-                    color: white;
-                    font-size: 12px;
-                    font-weight: normal;
-                    width: var(--complete);
-                    overflow-x: scroll;
-                    scrollbar-width: none;
-                    text-align: center;
-                }
-            }
-
-            .input-left h2, .input-right h2 {
-                animation: autoScroll 4s ease-in-out infinite;
-                white-space: nowrap;
-                text-align: right !important;
-                position: absolute;
-                left: 0;
-                top: 50%;
-                transform: translateY(-50%);
-                width: max-content;
-                padding: 0 12px;
-            }   
-
-            .input-left, .label-right{
-                border-top-left-radius: 10px;
-                border-bottom-left-radius: 10px;
-            }
-            .input-right, .label-left{
-                border-top-right-radius: 10px;
-                border-bottom-right-radius: 10px;
-            }
-        }
-
-        .form-group-left:hover, .form-group-right:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(84, 152, 255, 0.3);
-        }
-
-        .form-group-left:hover .label-left, 
-        .form-group-left:hover .label-right,
-        .form-group-right:hover .label-left, 
-        .form-group-right:hover .label-right {
-            background-color: var(--label-view-hover);
-        }
-    }
+    gap: 15px;
 }
 
-@keyframes autoScroll {
-    0%, 20% {
-        transform: translateY(-50%) translateX(0);
-    }
-    40%, 60% {
-        transform: translateY(-50%) translateX(calc(-100% + 100px));
-    }
-    80%, 100% {
-        transform: translateY(-50%) translateX(0);
-    }
+form.view .scroll-form{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    height: 65%;
+    padding-right: 10px;
+    overflow-y: auto;
+}
+
+form.view .scroll-form .form-group-left, 
+form.view .scroll-form .form-group-right{
+    width: 100%;
+    height: 140px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+form.view .scroll-form .form-group-left:hover, 
+form.view .scroll-form .form-group-right:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(84, 152, 255, 0.3);
+}
+
+form.view .scroll-form .label-left, 
+form.view .scroll-form .label-right{
+    background-color: var(--label-view);
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form.view .scroll-form .form-group-left:hover .label-left, 
+form.view .scroll-form .form-group-left:hover .label-right,
+form.view .scroll-form .form-group-right:hover .label-left, 
+form.view .scroll-form .form-group-right:hover .label-right {
+    background-color: var(--label-view-hover);
+}
+
+form.view .scroll-form .input-left, 
+form.view .scroll-form .input-right{
+    background-color: var(--input-view);
+    color: white;
+    padding: 0 12px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    position: relative;
+    border: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+form.view .scroll-form .input-left h2, 
+form.view .scroll-form .input-right h2{
+    color: white;
+    font-size: 12px;
+    font-weight: normal;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0 8px;
 }
 
 .form-view-buttons{
-    height: 19%;
-    width: 70%;
+    height: auto;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    a.exit, button.confirm{
-        width: 45%;
-        height: 90%;
-        border-radius: 10px;
-        box-shadow: 0px 1px 30px 2px rgba(0,0,0,0.22);
-        color: white;
-        font-size: 19px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        transition: .4s all ease-in-out;
-        position: relative;
-        overflow: hidden;
-    }
-
-    a.exit::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 0;
-        height: 0;
-        border-radius: 50%;
-        background: rgba(0, 0, 0, 0.2);
-        transform: translate(-50%, -50%);
-        transition: width 0.6s ease, height 0.6s ease;
-    }
-
-    a.exit:hover::before {
-        width: 300px;
-        height: 300px;
-    }
-
-    a.exit{
-        background-color: var(--label-view);
-    }
-    a.exit:hover{
-        background-color: var(--label-view-hover);
-        transform: translateY(-3px);
-        box-shadow: 0px 5px 35px 5px rgba(142, 187, 255, 0.3);
-    }
+    gap: 20px;
 }
+
+.form-view-buttons a.exit{
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.form-view-buttons a.exit::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+}
+
+.form-view-buttons a.exit:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.form-view-buttons a.exit{
+    background-color: var(--label-view);
+}
+
+.form-view-buttons a.exit:hover{
+    background-color: var(--label-view-hover);
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 20px rgba(142, 187, 255, 0.3);
+}
+
+/* ============================================
+   DELETE FORM STYLES
+   ============================================ */
+
+.logo-delete{
+    min-width: 180px;
+    min-height: 180px;
+    border-radius: 50%;
+    background-color: var(--delete);
+    box-shadow: 0px -10px 30px 0px rgba(0,0,0,0.26) inset;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .4s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.logo-delete img{
+    height: 45%;
+    transition: transform 0.4s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.logo-delete::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.2), transparent);
+    transform: scale(0);
+    transition: transform 0.4s ease;
+}
+
+.logo-delete:hover::before {
+    transform: scale(1);
+}
+
+.logo-delete:hover{
+    transform: rotate(-30deg) scale(1.05);
+    box-shadow: 0px 0px 40px 5px rgba(145, 24, 24, 0.5);
+}
+
+.logo-delete:hover img {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.delete-container{
+    min-width: 100%;
+    min-height: 73%;
+    background-color: var(--delete);
+    border-radius: 30px;
+    margin-top: -50px;
+    box-shadow: 0px -10px 30px 0px rgba(0,0,0,0.21) inset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: background-color 0.3s ease;
+    padding: 20px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+form.delete{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form.delete .scroll-form{
+    width: 100%;
+    height: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 10px;
+    overflow-y: auto;
+}
+
+form.delete .scroll-form h1{
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.4;
+    animation: shake 0.5s ease infinite;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    75% { transform: translateX(3px); }
+}
+
+.form-delete-buttons{
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+.form-delete-buttons a.exit, 
+.form-delete-buttons button.confirm{
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.form-delete-buttons a.exit::before, 
+.form-delete-buttons button.confirm::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+}
+
+.form-delete-buttons a.exit:hover::before, 
+.form-delete-buttons button.confirm:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.form-delete-buttons a.exit{
+    background-color: var(--delete-exit);
+}
+
+.form-delete-buttons button.confirm{
+    background-color: var(--delete-confirm);
+}
+
+.form-delete-buttons a.exit:hover{
+    background-color: var(--delete-exit-hover);
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 20px rgba(186, 43, 43, 0.4);
+}
+
+.form-delete-buttons button.confirm:hover{
+    background-color: var(--delete-confirm-hover);
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 20px rgba(86, 9, 9, 0.4);
+}
+
+/* ============================================
+   GENERAL SECTIONS
+   ============================================ */
 
 .section-crud{
     display: flex;
     justify-content: end;
     align-items: center;
-    width: var(--complete);
-    height: var(--complete);
+    width: 100%;
+    height: 100%;
 }
 
 .text-welcome-crud{
     width: 45%;
-    height: var(--complete);
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: start;
     flex-direction: column;
-    h1{
-        width: 110%;
-        color: var(--text-primary);
-        font-size: 90px;
-        text-decoration: underline;
-        font-weight: 600;
-        transition: color 0.3s ease;
-    }
-    h2{
-        width: 130%;
-        color: var(--lightGreen);
-        font-size: 56px;
-        margin-top: -35px;
-        font-weight: 500;
-    }
-    h3{
-        color: var(--text-secondary);
-        width: 90%;
-        font-size: 18px;
-        line-height: 1.1;
-        transition: color 0.3s ease;
-    }
+}
+
+.text-welcome-crud h1{
+    width: 110%;
+    color: var(--text-primary);
+    font-size: 90px;
+    text-decoration: underline;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.text-welcome-crud h2{
+    width: 130%;
+    color: var(--lightGreen);
+    font-size: 56px;
+    margin-top: -35px;
+    font-weight: 500;
+}
+
+.text-welcome-crud h3{
+    color: var(--text-secondary);
+    width: 90%;
+    font-size: 18px;
+    line-height: 1.1;
+    transition: color 0.3s ease;
 }
 
 .img-welcome-crud{
     width: 50%;
-    height: var(--complete);
+    height: 100%;
     background: url(../../images/app/welcome-bg.png);
 }
 
-/* Estilos para el mensaje "No se encontraron usuarios" */
 .no-results-message {
     width: 100%;
     height: 100%;
@@ -1546,11 +1675,9 @@ form.view{
 }
 
 /* ============================================
-   ESTILOS GENERALES PARA CONSUMO DE API
-   Reutilizable para todas las entidades
+   API LOADING AND MESSAGES
    ============================================ */
 
-/* Loading Container */
 .api-loading-container {
     width: 100%;
     height: 100%;
@@ -1581,7 +1708,6 @@ form.view{
     50% { opacity: 0.5; }
 }
 
-/* Spinner de carga */
 .api-spinner {
     width: 60px;
     height: 60px;
@@ -1595,7 +1721,6 @@ form.view{
     to { transform: rotate(360deg); }
 }
 
-/* Mensajes generales (error, no results) */
 .api-message {
     width: 100%;
     height: 100%;
@@ -1620,14 +1745,12 @@ form.view{
     transition: all 0.3s ease;
 }
 
-/* Mensaje de error */
 .api-message.error p {
     color: var(--delete);
     background: rgba(145, 24, 24, 0.1);
     border: 2px solid var(--delete);
 }
 
-/* Mensaje de no resultados */
 .api-message.no-results p {
     color: var(--text-secondary);
 }
@@ -1643,7 +1766,6 @@ form.view{
     }
 }
 
-/* Modo oscuro */
 body.dark-mode .api-spinner {
     border-color: rgba(255, 255, 255, 0.1);
     border-top-color: var(--lightBlue);
@@ -1658,4 +1780,24 @@ body.dark-mode .api-message p {
 .data-container::after {
     content: none !important;
     display: none !important;
+}
+
+/* --- FIX: evitar que SweetAlert deforme el layout del fondo --- */
+html.swal2-shown,
+body.swal2-shown {
+  overflow-y: auto !important; /* Mantiene scroll natural */
+  position: relative !important;
+  height: 100% !important;
+}
+
+/* Evita que los contenedores crezcan cuando aparece SweetAlert */
+main,
+section.content,
+section.section-crud,
+section.section,
+footer {
+  transition: none !important;
+  min-height: unset !important;
+  max-height: unset !important;
+  transform: none !important;
 }

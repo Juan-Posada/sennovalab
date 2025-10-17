@@ -97,7 +97,7 @@ section.news{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 65px;
+    padding-top: 75px;
     background-color: var(--blanco);
 }
 

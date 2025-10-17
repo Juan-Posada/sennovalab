@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Editar usuarios </title>
+    <title> Editar usuario </title>
     <link rel="stylesheet" href="../../../assets/css/admin/admin.css">
     <link rel="stylesheet" href="../../../assets/css/reset.css">
     <link rel="shortcut icon" href="../../../assets/images/app/logo-nnovaweb.png" type="image/x-icon">
@@ -20,23 +20,23 @@
                 </div>
                 <div class="actions-profile">
                     <div class="logout">
-                        <a href="../../auth/login.html"><img src="../../../assets/images/app/logout.png" alt="logout"></a>
+                        <a href="#"><img src="../../../assets/images/app/logout.png" alt="logout"></a>
                     </div>
                 </div>
             </div>
             <div class="actions-redirections">
                 <a href="../admin.html" id="redirect-to" class="inicio"><img src="../../../assets/images/app/inicio.png" alt="inicio"> Inicio</a>
-                <a href="" id="redirect-to" class="roles"><img src="../../../assets/images/app/roles.png" alt="roles"> Roles</a>
-                <a href="" id="redirect-to" class="asesoria"><img src="../../../assets/images/app/asesoria.png" alt="asesoria"> Asesoría </a>
-                <a href="" id="redirect-to" class="noticias"><img src="../../../assets/images/app/noticias.png" alt="noticias"> Noticias </a>
-                <a href="" id="redirect-to" class="informacion"><img src="../../../assets/images/app/informacion.png" alt="informacion"> Información </a>
-                <a href="" id="redirect-to" class="lineas"><img src="../../../assets/images/app/lineas.png" alt="lineas"> Líneas </a>
-                <a href="" id="redirect-to" class="categorias"><img src="../../../assets/images/app/categorias.png" alt="categorias"> Categorías </a>
-                <a href="" id="redirect-to" class="tipoFormulario"><img src="../../../assets/images/app/tipoFormulario.png" alt="categorias"> Tipo Formulario </a>
-                <a href="" id="redirect-to" class="peticiones"><img src="../../../assets/images/app/peticiones.png" alt="categorias"> Peticiones </a>
-                <a href="" id="redirect-to" class="encuestas"><img src="../../../assets/images/app/encuesta.png" alt="encuestas"> Encuestas </a>
-                <a href="" id="redirect-to" class="proyectos"><img src="../../../assets/images/app/proyectos.png" alt="proyectos"> Proyectos </a>
-                <a href="" id="redirect-to" class="seguimientos"><img src="../../../assets/images/app/seguimientos.png" alt="seguimientos"> Seguimientos </a>
+                <a href="../proyectos/view.html" id="redirect-to" class="proyectos"><img src="../../../assets/images/app/proyectos.png" alt="proyectos"> Proyectos </a>
+                <a href="../seguimientos/view.html" id="redirect-to" class="seguimientos"><img src="../../../assets/images/app/seguimientos.png" alt="seguimientos"> Seguimientos </a>
+                <a href="../roles/view.html" id="redirect-to" class="roles"><img src="../../../assets/images/app/roles.png" alt="roles"> Roles</a>
+                <a href="../asesorias/view.html" id="redirect-to" class="asesoria"><img src="../../../assets/images/app/asesoria.png" alt="asesoria"> Asesoría </a>
+                <a href="../noticias/view.html" id="redirect-to" class="noticias"><img src="../../../assets/images/app/noticias.png" alt="noticias"> Noticias </a>
+                <a href="../informacion/view.html" id="redirect-to" class="informacion"><img src="../../../assets/images/app/informacion.png" alt="informacion"> Información </a>
+                <a href="../lineas/view.html" id="redirect-to" class="lineas"><img src="../../../assets/images/app/lineas.png" alt="lineas"> Líneas </a>
+                <a href="../categorias/view.html" id="redirect-to" class="categorias"><img src="../../../assets/images/app/categorias.png" alt="categorias"> Categorías </a>
+                <a href="../tipo/view.html" id="redirect-to" class="tipoFormulario"><img src="../../../assets/images/app/tipoFormulario.png" alt="categorias"> Tipo Formulario </a>
+                <a href="../peticiones/view.html" id="redirect-to" class="peticiones"><img src="../../../assets/images/app/peticiones.png" alt="categorias"> Peticiones </a>
+                <a href="../encuestas/view.html" id="redirect-to" class="encuestas"><img src="../../../assets/images/app/encuesta.png" alt="encuestas"> Encuestas </a>
             </div>
             <div class="foot-info">
                 <h2>NNOVAWEB | ACTIONS</h2>
@@ -77,29 +77,14 @@
                     <div class="edit-container">
                         <form action="" class="edit">
                             <div class="scroll-form">
-                                <div class="form-group-left">
-                                    <input type="text" class="input-left">
-                                    <div class="label-left">
-                                        <label for="">
-                                            
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="form-group-right">
-                                    <div class="label-right">
-                                        <label for="">
-                                            
-                                        </label>
-                                    </div>
-                                    <input type="text" class="input-right">
-                                </div>
+                                <!-- Los campos se generarán dinámicamente aquí -->
                             </div>
                             <div class="form-edit-buttons">
                                 <a href="view.html" class="exit">Salir</a>
-                                <button class="confirm">Editar</button>
+                                <button type="button" class="confirm">Editar</button>
                             </div>
                         </form>
-                        </div>
+                    </div>
                 </div>
             </section>
             <footer class="footer">
@@ -111,7 +96,15 @@
             </footer>
         </section>
     </main>
+    
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- Scripts -->
+    <script src="../../../assets/js/auth/auth.js"></script>
     <script src="../../../assets/js/app/admin.js"></script>
+    <script src="../../../assets/js/api/api-crud-manager.js"></script>
+    <script src="../../../assets/js/api/users/edit-user.js"></script>
 </body>
 
 </html>
