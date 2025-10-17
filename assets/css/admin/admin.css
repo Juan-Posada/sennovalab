@@ -1792,10 +1792,8 @@ body.swal2-shown {
 
 /* Evita que los contenedores crezcan cuando aparece SweetAlert */
 main,
-section.content,
-section.section-crud,
-section.section,
-footer {
+section.content, section.section-crud, section.section,
+footer.footer {
   transition: none !important;
   min-height: unset !important;
   max-height: unset !important;
