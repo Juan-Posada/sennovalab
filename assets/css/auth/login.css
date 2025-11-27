@@ -72,18 +72,11 @@ section.card{
     height: 59%;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-    border-left: 2px solid var(--blanco);
-    border-right: 2px solid var(--blanco);
     border-bottom: 2px solid var(--blanco);
     display: flex;
     justify-content: center;
     align-items: end;
     transition: all 0.3s ease;
-}
-
-.title:hover{
-    border-color: var(--azul-claro-logo);
-    box-shadow: 0 5px 15px rgba(84, 152, 255, 0.2);
 }
 
 .title h1{
